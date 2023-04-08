@@ -30,7 +30,6 @@ app.prepare().then(() => {
 
   server.post("/:path", (req, res) => {
     console.log(req.body);
-
     return res.sendStatus(200);
   });
 

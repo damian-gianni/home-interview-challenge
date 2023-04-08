@@ -13,7 +13,7 @@
         "type": "password",
         "name": "password",
         "label": "Password",
-        "regex": "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$",
+        "regex": "^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$",
         "required": true
       },
       {
@@ -42,7 +42,6 @@
         "label": "Your full name",
         "regex": "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
       },
-
       {
         "type": "email",
         "name": "email",
@@ -59,15 +58,20 @@
         "type": "password",
         "name": "password",
         "label": "Password",
-        "regex": "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+        "regex": "^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$"
       },
       {
         "type": "password",
-        "name": "password",
+        "name": "confirm_password",
         "label": "Confirm your password",
-        "regex": "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$",
+        "regex": "^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$",
         "conditions": {
-          "validations": [{ "comparision": "same", "input": "password" }]
+          "validations": [
+            {
+              "comparision": "same",
+              "input": "password"
+            }
+          ]
         }
       },
       {
@@ -75,8 +79,14 @@
         "name": "country",
         "label": "¿Where are you living?",
         "options": [
-          { "value": "argentina", "label": "Argentina" },
-          { "value": "other", "label": "Other" }
+          {
+            "value": "argentina",
+            "label": "Argentina"
+          },
+          {
+            "value": "other",
+            "label": "Other"
+          }
         ]
       },
       {
@@ -88,17 +98,19 @@
             {
               "comparision": "not_includes",
               "input": "country",
-              "values": ["argentina"]
+              "values": [
+                "argentina"
+              ]
             }
           ],
           "render": [
-            [
-              {
-                "comparision": "includes",
-                "input": "country",
-                "values": ["other"]
-              }
-            ]
+            {
+              "comparision": "includes",
+              "input": "country",
+              "values": [
+                "other"
+              ]
+            }
           ]
         }
       },
